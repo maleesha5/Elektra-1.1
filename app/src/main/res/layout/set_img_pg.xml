@@ -23,7 +23,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customize Icon"
+        android:text="@string/customize_icon"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -35,7 +35,7 @@
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
-        android:text="Choose an Icon for your Smart Plug"
+        android:text="@string/choose_an_icon_for_your_smart_plug"
         android:textSize="18sp" />
 
     <Button
@@ -45,6 +45,6 @@
         android:layout_alignEnd="@+id/textView4"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView4"
-        android:text="Next" />
+        android:text="@string/next_img" />
 
 </RelativeLayout>

@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pick"
+        android:text="@string/pick"
         android:id="@+id/b_pick"
         android:layout_below="@+id/left_time"
         android:layout_centerHorizontal="true"
@@ -25,7 +25,7 @@
         android:layout_alignStart="@+id/b_pick"
         android:layout_below="@+id/b_pick"
         android:layout_marginTop="14dp"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 
     <TextView
         android:layout_width="wrap_content"

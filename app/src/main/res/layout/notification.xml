@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="188dp"
         android:elevation="0dp"
-        android:text="Email Notification"
+        android:text="@string/email_notification"
         android:textSize="18sp" />
 
     <Button
@@ -21,6 +21,6 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/btnSetupMail"
         android:layout_marginTop="46dp"
-        android:text="Mobile Notification"
+        android:text="@string/mobile_notification"
         android:textSize="18sp" />
 </RelativeLayout>

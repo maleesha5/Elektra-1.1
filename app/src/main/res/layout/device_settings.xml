@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Device Settings"
+        android:text="@string/device_settings"
         android:textSize="24sp" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_marginTop="46dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Device Name" />
+        android:text="@string/device_name" />
 
     <EditText
         android:id="@+id/txtLocation"
@@ -32,7 +32,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Device Location" />
+        android:text="@string/device_location" />
 
     <GridView
         android:id="@+id/grdSettings"
@@ -55,6 +55,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp"
-        android:text="Done" />
+        android:text="@string/done" />
 
 </RelativeLayout>

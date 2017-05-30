@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:text="Let's give a Location for the device!"
+        android:text="@string/let_s_give_a_location_for_the_device"
         android:textAlignment="center"
         android:textSize="24sp" />
 
@@ -23,7 +23,7 @@
         android:layout_margin="50dp"
         android:layout_marginBottom="146dp"
         android:gravity="center"
-        android:text="Set Location" />
+        android:text="@string/set_location" />
 
     <ListView
         android:id="@+id/listCity"

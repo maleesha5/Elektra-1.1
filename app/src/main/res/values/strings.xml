@@ -6,4 +6,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_device_name">Enter Device Name</string>
+    <string name="let_s_give_it_a_friendlier_name_like_quot_living_room_lamp_quot">Let\'s give it a friendlier name like \"Living room Lamp\"</string>
+    <string name="enter_device_names">Enter Device Name</string>
+    <string name="next">Next</string>
+    <string name="device_location">Device Location</string>
+    <string name="device_name">Device Name</string>
+    <string name="device_settings">Device Settings</string>
+    <string name="done">Done</string>
+    <string name="pick">pick</string>
+    <string name="cancel">Cancel</string>
+    <string name="let_s_give_a_location_for_the_device">Let\'s give a Location for the device!</string>
+    <string name="set_location">Set Location</string>
+    <string name="activate">Activate</string>
+    <string name="done_not">DONE</string>
+    <string name="email_notification">Email Notification</string>
+    <string name="mobile_notification">Mobile Notification</string>
+    <string name="customize_icon">Customize Icon</string>
+    <string name="choose_an_icon_for_your_smart_plug">Choose an Icon for your Smart Plug</string>
+    <string name="next_img">Next</string>
+    <string name="mail_address">Mail Address</string>
+    <string name="activate_mail">ACTIVATE</string>
+    <string name="done_mail">DONE</string>
 </resources>
