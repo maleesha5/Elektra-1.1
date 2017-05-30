@@ -14,6 +14,9 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 public class Statistics extends Fragment {
+
+    LineGraphSeries<DataPoint> deviceStatus;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -21,17 +24,12 @@ public class Statistics extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.stat_item, container, false);
 
-    GraphView graph = (GraphView)rootView.findViewById(R.id.graph);
-    LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-            new DataPoint(0, 1.0),
-            new DataPoint(1, 0.0),
-            new DataPoint(2, 0.0),
-            new DataPoint(3, 0.99),
-            new DataPoint(4, 0.97)
+        GraphView graph = (GraphView)rootView.findViewById(R.id.graph);
+        deviceStatus = new LineGraphSeries<DataPoint>();
 
+        deviceStatus.appendData(new DataPoint(0, 1), true, 500);
 
-    });
-graph.addSeries(series);
+        graph.addSeries(deviceStatus);
 
 
     return rootView;

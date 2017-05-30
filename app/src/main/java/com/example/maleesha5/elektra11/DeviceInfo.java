@@ -128,7 +128,7 @@ public class DeviceInfo {
 
     public void updateFirebase(){
 
-        dataBaseDevcies = FirebaseDatabase.getInstance().getReference("devices");
+        dataBaseDevcies = FirebaseDatabase.getInstance().getReference(MainActivity.deviceId+"/devices");
         DeviceInfo newDevice = new DeviceInfo(this.deviceName, this.imgId, this.status, this.deviceId, this.location, this.voltage, this.latestWatt, this.latestVoltage, this.latestAmpere);
 
         dataBaseDevcies.child(this.deviceId).setValue(newDevice);

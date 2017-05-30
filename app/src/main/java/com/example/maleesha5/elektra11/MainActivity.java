@@ -33,7 +33,7 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public String deviceId;
+    public static String deviceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,10 +172,10 @@ public class MainActivity extends AppCompatActivity
         deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
         // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("id");
+       // FirebaseDatabase database = FirebaseDatabase.getInstance();
+       // DatabaseReference myRef = database.getReference("id");
 
-        myRef.setValue(deviceId);
+        //myRef.setValue(deviceId);
 
     }
 

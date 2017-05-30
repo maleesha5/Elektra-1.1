@@ -40,7 +40,7 @@ public class SetIcon extends Fragment {
             Toast.makeText(getContext(), "" + dName,
                     Toast.LENGTH_SHORT).show();
         }
-        dataBaseDevcies = FirebaseDatabase.getInstance().getReference("devices");
+        dataBaseDevcies = FirebaseDatabase.getInstance().getReference(MainActivity.deviceId + "/devices");
 
         GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
         setIco = (Button) rootView.findViewById(R.id.btnSetIcon);

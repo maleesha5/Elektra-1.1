@@ -30,7 +30,7 @@ public class NotificationSettings extends Fragment {
     Button btnMail;
     Button btnMobile;
     AlertDialog dialog;
-
+    String appId;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,11 +40,15 @@ public class NotificationSettings extends Fragment {
 
         btnMail = (Button) rootView.findViewById(R.id.btnSetupMail);
         btnMobile = (Button) rootView.findViewById(R.id.btnMobNot);
-        final DatabaseReference databaseReferenceNotification = FirebaseDatabase.getInstance().getReference("mailNotification");
-        final DatabaseReference databaseReferenceMail = FirebaseDatabase.getInstance().getReference("email");
-        final DatabaseReference databaseRefeNotificationInt = FirebaseDatabase.getInstance().getReference("notificationInterval");
-        final DatabaseReference databaseReferenceMobile = FirebaseDatabase.getInstance().getReference("mobileNotification");
+        appId = MainActivity.deviceId;
 
+        final DatabaseReference databaseReferenceNotification = FirebaseDatabase.getInstance().getReference(appId + "/mailNotification");
+        final DatabaseReference databaseReferenceMail = FirebaseDatabase.getInstance().getReference(appId + "/email");
+        final DatabaseReference databaseRefeNotificationInt = FirebaseDatabase.getInstance().getReference(appId + "/notificationInterval");
+        final DatabaseReference databaseReferenceMobile = FirebaseDatabase.getInstance().getReference(appId + "/mobileNotification");
+
+       // databaseReferenceNotification.setValue(false);
+        //databaseReferenceMobile.setValue(false);
 
         btnMail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +63,11 @@ public class NotificationSettings extends Fragment {
                 databaseReferenceMail.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        String value = dataSnapshot.getValue(String.class);
-                        mail.setText(value);
+                        if (dataSnapshot.exists()) {
+                            String value = dataSnapshot.getValue(String.class);
+                            mail.setText(value);
+                        }
+
 
                     }
 
@@ -73,8 +80,11 @@ public class NotificationSettings extends Fragment {
                 databaseReferenceNotification.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean checked = (Boolean) dataSnapshot.getValue();
-                        chckMail.setChecked(checked);
+                        if (dataSnapshot.exists()) {
+                            boolean checked = (Boolean) dataSnapshot.getValue();
+                            chckMail.setChecked(checked);
+                        }
+
                     }
 
                     @Override
@@ -124,8 +134,11 @@ public class NotificationSettings extends Fragment {
                 databaseReferenceMobile.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean check = (Boolean) dataSnapshot.getValue();
-                        chkNotification.setChecked(check);
+                        if (dataSnapshot.exists()) {
+                            boolean check = (Boolean) dataSnapshot.getValue();
+                            chkNotification.setChecked(check);
+                        }
+
 
                     }
 
@@ -138,8 +151,11 @@ public class NotificationSettings extends Fragment {
                 databaseRefeNotificationInt.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        long time = (Long) dataSnapshot.getValue();
-                        spinner.setPrompt(Long.toString(time));
+
+                        if (dataSnapshot.exists()) {
+                            long time = (Long) dataSnapshot.getValue();
+                            spinner.setPrompt(Long.toString(time));
+                        }
                     }
 
                     @Override

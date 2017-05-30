@@ -47,6 +47,7 @@ public class TestGraph extends Fragment implements AdapterView.OnItemSelectedLis
     String smonth;
     String sdate;
     String shr;
+    LineGraphSeries<DataPoint> deviceStatus;
 
 
     public TestGraph() {

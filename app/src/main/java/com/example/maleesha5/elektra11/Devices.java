@@ -51,7 +51,7 @@ public class Devices extends Fragment {
 
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("devices");
+        DatabaseReference myRef = database.getReference(MainActivity.deviceId + "/devices");
 
 
 
