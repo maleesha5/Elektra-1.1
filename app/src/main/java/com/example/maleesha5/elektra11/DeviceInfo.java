@@ -22,7 +22,7 @@ public class DeviceInfo {
 
     }
 
-    public DeviceInfo(String deviceName, long imgId, boolean status, String deviceId, String location, HashMap<String, Double> voltage, Double latestWatt) {
+    public DeviceInfo(String deviceName, long imgId, boolean status, String deviceId, String location, HashMap<String, Double> voltage, Double latestWatt, Double latestVoltage, Double latestAmpere) {
         this.deviceId = deviceId;
         this.deviceName = deviceName;
         this.imgId = imgId;
@@ -30,6 +30,8 @@ public class DeviceInfo {
         this.location = location;
         this.voltage = voltage;
         this.latestWatt = latestWatt;
+        this.latestVoltage = latestVoltage;
+        this.latestAmpere = latestAmpere;
     }
 
     private String deviceName;
@@ -41,6 +43,19 @@ public class DeviceInfo {
     private HashMap<String,Double> voltage;
     private HashMap<String,Double> formattedTVol;
     private double latestWatt;
+    private double latestVoltage;
+    private double latestAmpere;
+
+    public double getLatestVoltage() {
+        return latestVoltage;
+    }
+
+    public double getLatestAmpere() {
+        return latestAmpere;
+    }
+
+
+
 
     public double getLatestWatt() {
         return latestWatt;
@@ -114,7 +129,7 @@ public class DeviceInfo {
     public void updateFirebase(){
 
         dataBaseDevcies = FirebaseDatabase.getInstance().getReference("devices");
-        DeviceInfo newDevice = new DeviceInfo(this.deviceName, this.imgId, this.status, this.deviceId, this.location, this.voltage, this.latestWatt);
+        DeviceInfo newDevice = new DeviceInfo(this.deviceName, this.imgId, this.status, this.deviceId, this.location, this.voltage, this.latestWatt, this.latestVoltage, this.latestAmpere);
 
         dataBaseDevcies.child(this.deviceId).setValue(newDevice);
 

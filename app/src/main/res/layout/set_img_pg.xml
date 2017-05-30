@@ -13,6 +13,7 @@
         android:columnWidth="150dp"
         android:gravity="center"
         android:horizontalSpacing="10dp"
+        android:listSelector="@drawable/test"
         android:numColumns="auto_fit"
         android:scrollbars="vertical"
         android:stretchMode="columnWidth"

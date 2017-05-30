@@ -141,6 +141,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_settings) {
+            setTitle("NotificationSettings");
+            NotificationSettings set = new NotificationSettings();
+            // newDevice.setDeviceid(deviceId);
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_main, set, "Stats");
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_send) {
 

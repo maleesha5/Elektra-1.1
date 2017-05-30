@@ -14,22 +14,23 @@
         android:textAlignment="center"
         android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/txtLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView7"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="111dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
     <Button
         android:id="@+id/btnLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtLocation"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp"
+        android:layout_margin="50dp"
+        android:layout_marginBottom="146dp"
+        android:gravity="center"
         android:text="Set Location" />
+
+    <ListView
+        android:id="@+id/listCity"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="22dp"
+        android:listSelector="@drawable/test" />
 </RelativeLayout>

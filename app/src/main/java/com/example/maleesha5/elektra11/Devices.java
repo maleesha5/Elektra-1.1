@@ -49,6 +49,7 @@ public class Devices extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_devices, container, false);
         list=(ListView) rootView.findViewById(R.id.list);
 
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("devices");
 

@@ -59,7 +59,7 @@ public class SetIcon extends Fragment {
 
                 dID = dataBaseDevcies.push().getKey();
 
-                DeviceInfo newDevice = new DeviceInfo(dName,imgAdapter.getmThumbIds()[position], false, dID, dLocation,newHash, 0.0);
+                DeviceInfo newDevice = new DeviceInfo(dName,imgAdapter.getmThumbIds()[position], false, dID, dLocation,newHash, 0.0, 0.0, 0.0);
 
                 dataBaseDevcies.child(dID).setValue(newDevice);
                 WifiConnect wifiAct = new WifiConnect();
