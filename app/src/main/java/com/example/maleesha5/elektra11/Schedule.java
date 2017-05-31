@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +43,7 @@ public class Schedule extends Fragment implements DatePickerDialog.OnDateSetList
     int totalPre,totalPas,difference;
     DatabaseReference myRef;//date difference and total variables
     boolean isCancel=false;
+    private String deviceID;
 
    // private final String API_KEY = "cada20a3fbf7e42890cb2fa273db6f6bad7eb0b3";
     //private final String VARIABLE_ID = "585e7f1176254273e64e6cd8";
@@ -55,9 +57,15 @@ public class Schedule extends Fragment implements DatePickerDialog.OnDateSetList
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
 
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            deviceID = bundle.getString("deviceID", "noName");
+            Toast.makeText(getContext(), "" + deviceID,
+                    Toast.LENGTH_SHORT).show();
+        }
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("devices/-KkdzvO6FNc2Ye6na2VP/status");
+        myRef = database.getReference(MainActivity.deviceId +"/devices/" + deviceID + "/status");
         b_pick=(Button)rootView.findViewById(R.id.b_pick);
         btn_cancel=(Button)rootView.findViewById(R.id.btn_cancel);
 
@@ -98,7 +106,7 @@ public class Schedule extends Fragment implements DatePickerDialog.OnDateSetList
 
         Calendar c= Calendar.getInstance();
         year=c.get(Calendar.YEAR);
-        month=c.get(Calendar.MONTH)+1;
+        month=c.get(Calendar.MONTH);
         day=c.get(Calendar.DAY_OF_MONTH);
         hour=c.get(Calendar.HOUR_OF_DAY);
         minute=c.get(Calendar.MINUTE);
@@ -119,7 +127,7 @@ public class Schedule extends Fragment implements DatePickerDialog.OnDateSetList
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {  //user selected month day
 
         // yearFinal=year;
-        monthFinal=monthOfYear;
+        monthFinal=monthOfYear+1;
         dayFinal=dayOfMonth;
 
         //Calendar c=Calendar.getInstance();
@@ -153,7 +161,7 @@ public class Schedule extends Fragment implements DatePickerDialog.OnDateSetList
 
         Calendar c= Calendar.getInstance();
         year=c.get(Calendar.YEAR);
-        month=c.get(Calendar.MONTH)+1;
+        month=c.get(Calendar.MONTH)+ 1;
         day=c.get(Calendar.DAY_OF_MONTH);
         hour=c.get(Calendar.HOUR_OF_DAY);
         minute=c.get(Calendar.MINUTE);

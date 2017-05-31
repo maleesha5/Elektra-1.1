@@ -6,6 +6,8 @@ package com.example.maleesha5.elektra11;
 
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -40,6 +42,8 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceInfo> {
     Switch powerSwitch;
     Button remove;
     Button btnSettings;
+    Button scheduleBut;
+    Button statButton;
     FirebaseDatabase firebase;
     AlertDialog dialog;
 
@@ -69,9 +73,11 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceInfo> {
         powerSwitch = (Switch) rowView.findViewById(R.id.switch1);
         remove = (Button) rowView.findViewById(R.id.btnRemove);
         btnSettings = (Button) rowView.findViewById(R.id.btnSettings);
+        scheduleBut = (Button) rowView.findViewById(R.id.btnschedule);
+        statButton = (Button) rowView.findViewById(R.id.btnStat);
 
 
-        powerSwitch.setChecked(itemname.get(position).isStatus());
+       powerSwitch.setChecked(itemname.get(position).isStatus());
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +87,25 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceInfo> {
         });
 
 
+       statButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Statistics newDevice = new Statistics();
+
+
+               Bundle bundle = new Bundle();
+               bundle.putString("deviceID", itemname.get(position).getDeviceId());
+
+               newDevice.setArguments(bundle);
+               if (getContext() instanceof FragmentActivity) {
+                   // We can get the fragment manager
+                   FragmentActivity activity = (FragmentActivity) (getContext());
+                   FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+                   fragmentTransaction.replace(R.id.content_main, newDevice, "Statistics");
+                   fragmentTransaction.commit();
+               }
+           }
+       });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +154,29 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceInfo> {
             }
 
         });
+
+       scheduleBut.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Schedule newDevice = new Schedule();
+
+
+               Bundle bundle = new Bundle();
+               bundle.putString("deviceID", itemname.get(position).getDeviceId());
+
+               newDevice.setArguments(bundle);
+               if (getContext() instanceof FragmentActivity) {
+                   // We can get the fragment manager
+                   FragmentActivity activity = (FragmentActivity) (getContext());
+                   FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+                   fragmentTransaction.replace(R.id.content_main, newDevice, "Schedule");
+                   fragmentTransaction.commit();
+               }
+              // FragmentTransaction fragmentTransaction = getA().beginTransaction();
+
+
+           }
+       });
 
         powerSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

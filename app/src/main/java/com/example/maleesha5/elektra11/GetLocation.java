@@ -61,7 +61,7 @@ public class GetLocation extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             dName = bundle.getString("dName", "noName");
-            Toast.makeText(getContext(), "" + dName,
+            Toast.makeText(getContext(), "" + dName + " Added To The List!",
                     Toast.LENGTH_SHORT).show();
         }
 
@@ -80,8 +80,7 @@ public class GetLocation extends Fragment {
 
                // When clicked, show a toast with the TextView text
                deviceLocation = ((TextView) view).getText().toString();
-               Toast.makeText(getContext(),
-                       ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+
            }
        });
 

@@ -53,21 +53,21 @@ public class AddDevice extends Fragment {
             public void onClick(View v) {
 
 
-                addDevice();
+                if(addDevice()) {
 
 
+                    GetLocation newDevice = new GetLocation();
 
-                GetLocation newDevice = new GetLocation();
 
+                    Bundle bundle = new Bundle();
+                    bundle.putString("dName", dName);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("dName", dName);
+                    newDevice.setArguments(bundle);
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-                newDevice.setArguments(bundle);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-                fragmentTransaction.replace(R.id.content_main, newDevice, "Get Location");
-                fragmentTransaction.commit();
+                    fragmentTransaction.replace(R.id.content_main, newDevice, "Get Location");
+                    fragmentTransaction.commit();
+                }
 
             }
         });
@@ -77,17 +77,18 @@ public class AddDevice extends Fragment {
         return rootView;
     }
 
-    private void addDevice(){
+    private boolean addDevice(){
 
         dName = deviceName.getText().toString().trim();
 
         if(!TextUtils.isEmpty(dName)){
 
 
-
+            return  true;
         }else{
 
             Toast.makeText(getContext(), "Please enter a device Name", Toast.LENGTH_LONG).show();
+            return false;
         }
 
 

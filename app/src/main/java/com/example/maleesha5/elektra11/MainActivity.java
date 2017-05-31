@@ -46,14 +46,7 @@ public class MainActivity extends AppCompatActivity
         //createProfile();
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -130,35 +123,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.content_main, newDevice, "Add Devices");
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_stats) {
-
-            setTitle("Stats");
-            Statistics newGraph = new Statistics();
-            // newDevice.setDeviceid(deviceId);
-
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_main, newGraph, "Stats");
-            fragmentTransaction.commit();
-
-        } else if (id == R.id.nav_settings) {
+        }  else if (id == R.id.nav_settings) {
             setTitle("NotificationSettings");
             NotificationSettings set = new NotificationSettings();
             // newDevice.setDeviceid(deviceId);
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_main, set, "Stats");
-            fragmentTransaction.commit();
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_schedule) {
-
-            setTitle("Schedule");
-            Schedule schedule = new Schedule();
-            // newDevice.setDeviceid(deviceId);
-
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_main, schedule, "Schedule");
             fragmentTransaction.commit();
 
         }

@@ -18,7 +18,6 @@ import java.util.HashMap;
 
 public class SetIcon extends Fragment {
 
-    public Button setIco;
     private String dID;
     private String dName;
     private String dLocation;
@@ -37,13 +36,11 @@ public class SetIcon extends Fragment {
         if (bundle != null) {
             dName = bundle.getString("dName", "noName");
             dLocation = bundle.getString("dLocation", "noLocation");
-            Toast.makeText(getContext(), "" + dName,
-                    Toast.LENGTH_SHORT).show();
+
         }
         dataBaseDevcies = FirebaseDatabase.getInstance().getReference(MainActivity.deviceId + "/devices");
 
         GridView gridview = (GridView) rootView.findViewById(R.id.gridview);
-        setIco = (Button) rootView.findViewById(R.id.btnSetIcon);
 
         final ImageAdapter imgAdapter = new ImageAdapter(getContext());
         gridview.setAdapter(imgAdapter);
@@ -54,24 +51,23 @@ public class SetIcon extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
 
-                Toast.makeText(getContext(), "" + dName,
-                        Toast.LENGTH_SHORT).show();
+
 
                 dID = dataBaseDevcies.push().getKey();
 
                 DeviceInfo newDevice = new DeviceInfo(dName,imgAdapter.getmThumbIds()[position], false, dID, dLocation,newHash, 0.0, 0.0, 0.0);
 
                 dataBaseDevcies.child(dID).setValue(newDevice);
-                WifiConnect wifiAct = new WifiConnect();
+                Devices device = new Devices();
 
 
                 Bundle bundle = new Bundle();
                 bundle.putString("dName", dName);
 
-                wifiAct.setArguments(bundle);
+                device.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
-                fragmentTransaction.replace(R.id.content_main, wifiAct, "Connect");
+                fragmentTransaction.replace(R.id.content_main, device, "Connect");
                 fragmentTransaction.commit();
 
             }

@@ -11,30 +11,9 @@
             android:icon="@drawable/adddevice"
             android:title="Add Device" />
         <item
-            android:id="@+id/nav_schedule"
-            android:icon="@drawable/schedule"
-            android:title="Schedule" />
-        <item
-            android:id="@+id/nav_stats"
-            android:icon="@drawable/stat"
-            android:title="Statistics" />
-        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
             android:title="Settings" />
     </group>
-
-    <item android:title="About Us">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Our Team" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Our Product" />
-        </menu>
-    </item>
 
 </menu>
