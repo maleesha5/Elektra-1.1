@@ -1,0 +1,164 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:layout_x="11dp"
+            android:layout_y="12dp"
+            android:src="@drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/Itemname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/switch1"
+            android:layout_toEndOf="@+id/icon"
+            android:layout_weight="1"
+            android:layout_x="7dp"
+            android:layout_y="72dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textAlignment="viewStart"
+            android:textSize="30sp"
+            tools:text="ItemName" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:layout_x="338dp"
+            android:layout_y="27dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/btnschedule"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignBaseline="@+id/btnSettings"
+            android:layout_alignBottom="@+id/btnSettings"
+            android:layout_toEndOf="@+id/btnSettings"
+            android:layout_x="346dp"
+            android:layout_y="88dp"
+            android:background="@drawable/schedule" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/btnRemove"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/btnRemove"
+            android:layout_x="309dp"
+            android:layout_y="89dp"
+            android:background="@drawable/settingimg"
+            android:paddingLeft="10dp" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/icon"
+            android:layout_marginStart="10dp"
+            android:layout_x="273dp"
+            android:layout_y="89dp"
+            android:background="@drawable/remove"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnStat"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/stat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/txtAmps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnSettings"
+            android:layout_alignBottom="@+id/btnSettings"
+            android:layout_alignEnd="@+id/Itemname"
+            android:layout_weight="1"
+            android:layout_x="292dp"
+            android:layout_y="135dp"
+            android:text="0.000 A"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtWatt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtVol"
+            android:layout_alignBottom="@+id/txtVol"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:layout_x="157dp"
+            android:layout_y="136dp"
+            android:text="0.000W"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtAmps"
+            android:layout_alignBottom="@+id/txtAmps"
+            android:layout_toStartOf="@+id/switch1"
+            android:layout_weight="1"
+            android:layout_x="12dp"
+            android:layout_y="133dp"
+            android:padding="5dp"
+            android:text="0.000V"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</RelativeLayout>
